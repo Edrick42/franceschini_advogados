@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Painel · Franceschini Advogados</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      [class*="ImageWrapper"] img,
+      [class*="ImageAsset"] img {
+        max-height: 240px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+      }
+      main,
+      [class*="MainContainer"],
+      [class*="Main__StyledContainer"],
+      [class*="MainView"],
+      [class*="ContentArea"] {
+        max-width: none !important;
+        width: 100% !important;
+        box-sizing: border-box;
+      }
+      main {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="/admin/vendor/decap-cms-3.1.3.js"></script>
+    <script>
+      CMS.registerPreviewStyle("/admin/preview.css");
+
+      CMS.init({
+        config: {
+          load_config_file: false,
+          backend: {
+            name: "github",
+            repo: "andrea-faria/franceschini-advogados",
+            branch: "main",
+            base_url: window.location.origin,
+            auth_endpoint: "api/auth",
+          },
+          publish_mode: "simple",
+          media_folder: "public/uploads",
+          public_folder: "/uploads",
+          slug: {
+            encoding: "ascii",
+            clean_accents: true,
+            sanitize_replacement: "-",
+          },
+          locale: "pt",
+          site_url: window.location.origin,
+          display_url: window.location.origin,
+          logo_url: "/favicon.svg",
+          collections: [
+            {
+              name: "settings",
+              label: "Configurações do Site",
+              label_singular: "Configuração",
+              editor: { preview: false },
+              files: [
+                {
+                  name: "site",
+                  label: "Dados do escritório (contatos, navegação, CTA)",
+                  file: "src/data/site.json",
+                  format: "json",
+                  fields: [
+                    { label: "Nome (display)", name: "name", widget: "string" },
+                    { label: "Nome curto", name: "shortName", widget: "string" },
+                    { label: "Razão social", name: "legalName", widget: "string" },
+                    { label: "URL canônica", name: "url", widget: "string" },
+                    { label: "Logo (caminho público)", name: "logo", widget: "string" },
+                    { label: "Fundação", name: "founded", widget: "date", format: "YYYY-MM-DD" },
+                    {
+                      label: "Tagline",
+                      name: "tagline",
+                      widget: "object",
+                      fields: [
+                        { label: "Português", name: "pt", widget: "string" },
+                        { label: "English", name: "en", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Descrição (SEO)",
+                      name: "description",
+                      widget: "object",
+                      fields: [
+                        { label: "Português", name: "pt", widget: "text" },
+                        { label: "English", name: "en", widget: "text" },
+                      ],
+                    },
+                    {
+                      label: "Contato",
+                      name: "contact",
+                      widget: "object",
+                      fields: [
+                        { label: "Email", name: "email", widget: "string" },
+                        { label: "Telefone (display)", name: "phone", widget: "string" },
+                        { label: "Telefone E.164", name: "phoneRaw", widget: "string", hint: "Ex.: +552100000000" },
+                        {
+                          label: "Endereços",
+                          name: "addresses",
+                          widget: "list",
+                          fields: [
+                            { label: "Cidade", name: "city", widget: "string" },
+                            { label: "Rua e número", name: "street", widget: "string", required: false },
+                            { label: "Estado/UF", name: "state", widget: "string" },
+                            { label: "País (ISO)", name: "country", widget: "string" },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: "Redes sociais",
+                      name: "social",
+                      widget: "object",
+                      fields: [
+                        { label: "LinkedIn", name: "linkedin", widget: "string", required: false },
+                        { label: "Instagram", name: "instagram", widget: "string", required: false },
+                      ],
+                    },
+                    {
+                      label: "Link de agendamento (Helem)",
+                      name: "schedulingUrl",
+                      widget: "string",
+                      required: false,
+                      hint: "Cal.com, Calendly ou outro. Deixe vazio para ocultar o botão.",
+                    },
+                    {
+                      label: "Navegação primária",
+                      name: "primaryNav",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Português",
+                          name: "pt",
+                          widget: "list",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "English",
+                          name: "en",
+                          widget: "list",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: "Navegação secundária (rodapé)",
+                      name: "secondaryNav",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Português",
+                          name: "pt",
+                          widget: "list",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "English",
+                          name: "en",
+                          widget: "list",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: "CTA principal",
+                      name: "primaryCta",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Português",
+                          name: "pt",
+                          widget: "object",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "English",
+                          name: "en",
+                          widget: "object",
+                          fields: [
+                            { label: "Texto", name: "label", widget: "string" },
+                            { label: "Link", name: "href", widget: "string" },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "articles-pt",
+              label: "Publicações (PT)",
+              label_singular: "Publicação PT",
+              folder: "src/content/articles-pt",
+              create: true,
+              slug: "{{slug}}",
+              extension: "md",
+              format: "frontmatter",
+              summary: "{{title}} · {{date | date('YYYY-MM-DD')}}",
+              sortable_fields: ["date", "title", "category", "author"],
+              view_filters: [
+                { label: "Apenas publicados", field: "draft", pattern: false },
+                { label: "Apenas rascunhos", field: "draft", pattern: true },
+                { label: "Categoria · Contencioso", field: "category", pattern: "Contencioso" },
+                { label: "Categoria · Recursos", field: "category", pattern: "Recursos" },
+                { label: "Categoria · Arbitragem", field: "category", pattern: "Arbitragem" },
+                { label: "Categoria · Recuperação", field: "category", pattern: "Recuperacao" },
+              ],
+              view_groups: [{ label: "Por categoria", field: "category" }],
+              fields: [
+                { label: "Título", name: "title", widget: "string" },
+                { label: "Descrição", name: "description", widget: "text" },
+                { label: "Data de publicação", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false },
+                { label: "Autor", name: "author", widget: "string", default: "Franceschini Advogados Associados" },
+                {
+                  label: "Categoria",
+                  name: "category",
+                  widget: "select",
+                  options: ["Contencioso", "Recursos", "Arbitragem", "Recuperacao"],
+                  default: "Contencioso",
+                },
+                { label: "Imagem de destaque", name: "hero", widget: "image", required: false, allow_multiple: false },
+                { label: "Texto alternativo da imagem", name: "heroAlt", widget: "string", required: false },
+                { label: "Rascunho", name: "draft", widget: "boolean", default: false, hint: "Marcado = não aparece no site" },
+                { label: "Conteúdo", name: "body", widget: "markdown" },
+              ],
+            },
+            {
+              name: "articles-en",
+              label: "Publications (EN)",
+              label_singular: "Publication EN",
+              folder: "src/content/articles-en",
+              create: true,
+              slug: "{{slug}}",
+              extension: "md",
+              format: "frontmatter",
+              summary: "{{title}} · {{date | date('YYYY-MM-DD')}}",
+              sortable_fields: ["date", "title", "category", "author"],
+              view_filters: [
+                { label: "Published only", field: "draft", pattern: false },
+                { label: "Drafts only", field: "draft", pattern: true },
+              ],
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Description", name: "description", widget: "text" },
+                { label: "Publish date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false },
+                { label: "Author", name: "author", widget: "string", default: "Franceschini Advogados Associados" },
+                {
+                  label: "Category",
+                  name: "category",
+                  widget: "select",
+                  options: ["Contencioso", "Recursos", "Arbitragem", "Recuperacao"],
+                  default: "Contencioso",
+                },
+                { label: "Hero image", name: "hero", widget: "image", required: false, allow_multiple: false },
+                { label: "Hero alt text", name: "heroAlt", widget: "string", required: false },
+                { label: "Draft", name: "draft", widget: "boolean", default: false },
+                { label: "Body", name: "body", widget: "markdown" },
+              ],
+            },
+            {
+              name: "team",
+              label: "Equipe",
+              label_singular: "Membro da equipe",
+              folder: "src/content/team",
+              create: true,
+              slug: "{{slug}}",
+              extension: "json",
+              format: "json",
+              summary: "{{order}} · {{name}}",
+              sortable_fields: ["order", "name"],
+              fields: [
+                { label: "Ordem de exibição", name: "order", widget: "number", value_type: "int", min: 1, step: 1 },
+                { label: "Nome", name: "name", widget: "string" },
+                { label: "É fundador(a)?", name: "isFounder", widget: "boolean", default: false },
+                {
+                  label: "Cargo",
+                  name: "role",
+                  widget: "object",
+                  fields: [
+                    { label: "Português", name: "pt", widget: "string" },
+                    { label: "English", name: "en", widget: "string" },
+                  ],
+                },
+                {
+                  label: "Bio curta",
+                  name: "bio",
+                  widget: "object",
+                  fields: [
+                    { label: "Português", name: "pt", widget: "text" },
+                    { label: "English", name: "en", widget: "text" },
+                  ],
+                },
+                {
+                  label: "Bio completa (parágrafos)",
+                  name: "fullBio",
+                  widget: "object",
+                  required: false,
+                  fields: [
+                    { label: "Português", name: "pt", widget: "list", field: { label: "Parágrafo", name: "p", widget: "text" }, required: false },
+                    { label: "English", name: "en", widget: "list", field: { label: "Paragraph", name: "p", widget: "text" }, required: false },
+                  ],
+                },
+                {
+                  label: "Formação / credenciais",
+                  name: "education",
+                  widget: "list",
+                  required: false,
+                  field: { label: "Item", name: "item", widget: "string" },
+                },
+                { label: "Foto", name: "photo", widget: "image", required: false, allow_multiple: false, default: "" },
+              ],
+            },
+            {
+              name: "practice-areas",
+              label: "Áreas de Atuação",
+              label_singular: "Área",
+              folder: "src/content/practice-areas",
+              create: true,
+              slug: "{{slug}}",
+              extension: "json",
+              format: "json",
+              summary: "{{order}} · {{name.pt}}",
+              sortable_fields: ["order"],
+              fields: [
+                { label: "Ordem", name: "order", widget: "number", value_type: "int", min: 1, step: 1 },
+                { label: "Slug", name: "slug", widget: "string", hint: "Usado em URL e âncora. Ex.: contencioso-estrategico" },
+                {
+                  label: "Nome da área",
+                  name: "name",
+                  widget: "object",
+                  fields: [
+                    { label: "Português", name: "pt", widget: "string" },
+                    { label: "English", name: "en", widget: "string" },
+                  ],
+                },
+                {
+                  label: "Resumo curto",
+                  name: "summary",
+                  widget: "object",
+                  fields: [
+                    { label: "Português", name: "pt", widget: "string" },
+                    { label: "English", name: "en", widget: "string" },
+                  ],
+                },
+                {
+                  label: "Descrição",
+                  name: "description",
+                  widget: "object",
+                  fields: [
+                    { label: "Português", name: "pt", widget: "text" },
+                    { label: "English", name: "en", widget: "text" },
+                  ],
+                },
+                {
+                  label: "Casos típicos",
+                  name: "typicalCases",
+                  widget: "object",
+                  required: false,
+                  fields: [
+                    { label: "Português", name: "pt", widget: "list", field: { label: "Item", name: "item", widget: "string" }, required: false },
+                    { label: "English", name: "en", widget: "list", field: { label: "Item", name: "item", widget: "string" }, required: false },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

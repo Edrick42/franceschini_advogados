@@ -1,0 +1,181 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import Button from "~/components/Button.astro";
+import ContactForm from "~/components/ContactForm.astro";
+import site from "~/data/site.json";
+import { t } from "~/i18n/utils";
+
+const dict = t("pt");
+const scheduling = site.schedulingUrl;
+---
+
+<Layout title={dict.contact.eyebrow} description={dict.contact.lede}>
+  <PageHero
+    eyebrow={dict.contact.eyebrow}
+    heading={dict.contact.heading}
+    lede={dict.contact.lede}
+  />
+
+  <Section>
+    <div class="contact-grid">
+      <div class="contact-side">
+        {
+          scheduling && (
+            <div class="schedule">
+              <p class="eyebrow">{dict.contact.schedulingHeading}</p>
+              <p class="schedule__body">{dict.contact.schedulingBody}</p>
+              <Button href={scheduling} variant="primary" target="_blank">
+                {dict.contact.schedulingCta}
+              </Button>
+            </div>
+          )
+        }
+
+        <div class="info">
+          <p class="eyebrow">Direto</p>
+          <ul class="info__list">
+            <li>
+              <span class="info__label">Email</span>
+              <a class="info__value" href={`mailto:${site.contact.email}`}>
+                {site.contact.email}
+              </a>
+            </li>
+            {site.contact.phone && (
+              <li>
+                <span class="info__label">Telefone</span>
+                <a class="info__value" href={`tel:${site.contact.phoneRaw}`}>
+                  {site.contact.phone}
+                </a>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div class="info">
+          <p class="eyebrow">{dict.contact.addressesHeading}</p>
+          <ul class="info__list">
+            {
+              site.contact.addresses.map((addr) => (
+                <li>
+                  <span class="info__label">{addr.city}</span>
+                  {addr.street && <span class="info__value">{addr.street}</span>}
+                  {!addr.street && (
+                    <span class="info__value info__value--muted">
+                      {addr.state} · {addr.country}
+                    </span>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="info">
+          <p class="eyebrow">{dict.contact.officeHoursHeading}</p>
+          <p class="info__hours">{dict.contact.officeHoursBody}</p>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h2 class="form-heading">{dict.contact.formHeading}</h2>
+        <ContactForm />
+      </div>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-9);
+  }
+
+  @media (min-width: 960px) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+      gap: var(--space-9);
+    }
+  }
+
+  .contact-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+
+  .schedule {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--color-bg-inverse);
+    color: var(--color-text-inverse);
+    border-radius: var(--radius-lg);
+  }
+
+  .schedule p.eyebrow {
+    color: var(--color-text-inverse-subtle);
+  }
+
+  .schedule__body {
+    color: var(--color-text-inverse-muted);
+    font-size: var(--text-base);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-3);
+  }
+
+  .info {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-5);
+  }
+
+  .info p.eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .info__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .info__list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .info__label {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .info__value {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-strong);
+  }
+
+  .info__value--muted {
+    color: var(--color-text-muted);
+  }
+
+  .info__hours {
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+
+  .form-heading {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    font-weight: var(--weight-regular);
+    line-height: 1.2;
+    color: var(--color-text-strong);
+    margin-bottom: var(--space-6);
+  }
+</style>

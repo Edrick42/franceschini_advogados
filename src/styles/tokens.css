@@ -1,0 +1,223 @@
+/* ============================================================================
+   DESIGN TOKENS · Franceschini Advogados Associados
+   ----------------------------------------------------------------------------
+   Paleta extraída dos SVGs oficiais da marca (Arquivos/Marca/Logo/).
+   Aplicação 60-30-10:
+     · 60% cream/paper — superfícies dominantes claras
+     · 30% petrol — institucional, headers, fundos escuros
+     · 10% sand — acentos quentes (CTA único, micro-detalhes)
+   Contraste:
+     · ink (#2A2926) sobre cream (#EEEADB) = 11.5:1, AAA
+     · petrol (#17374E) sobre cream = 7.4:1, AAA
+     · cream sobre petrol = 7.4:1, AAA — pareamento para footer e hero escuros
+   ============================================================================ */
+
+:root {
+  /* ────────────────────────────────────────────────────────────────────────
+     1. PALETA OFICIAL
+     ──────────────────────────────────────────────────────────────────────── */
+  --brand-petrol: #17374e;
+  --brand-petrol-soft: #7099b3;
+  --brand-sand: #ddba8d;
+  --brand-cream: #eeeadb;
+  --brand-ink: #2a2926;
+  --brand-white: #f8f8f8;
+  --brand-paper: #ffffff;
+  --brand-muted: #5e5e5e;
+
+  /* 60% — neutros dominantes (branco quente, NÃO cream).
+     Cream foi rebaixado a "detalhe": só sobrevive em texto/botões
+     sobre fundo petrol e nas variantes inversas da marca. */
+  --color-bg: var(--brand-white);
+  --color-surface: #eceff2;             /* tint sutil de petrol-soft para cards/seções "surface" */
+  --color-surface-alt: var(--brand-paper);
+  --color-text: var(--brand-ink);
+  --color-text-strong: #1a1a1a;
+  --color-text-muted: var(--brand-muted);
+  --color-text-subtle: #7a7570;
+
+  /* 30% — estrutura tingida de petrol-soft.
+     Bordas e filetes agora carregam a cor da marca em vez de cinza neutro. */
+  --color-border: rgba(112, 153, 179, 0.28);
+  --color-border-strong: rgba(112, 153, 179, 0.50);
+  --color-rule: rgba(112, 153, 179, 0.22);
+
+  /* Accent estrutural — petrol-soft. Usado em bullets, hovers,
+     bordas vivas, ícones secundários. É o "tom funcional" da marca. */
+  --color-accent: var(--brand-petrol-soft);
+  --color-accent-hover: #5a8aa6;
+  --color-accent-soft: rgba(112, 153, 179, 0.14);
+
+  /* HIGHLIGHT — sand para destaques visuais (não para texto pequeno,
+     que falharia AA). Use em:
+       · índices grandes (01, 02, 03) decorativos
+       · marcadores de lista ("—" antes de itens)
+       · filetes diagonais e separadores quentes
+       · washes de fundo em blocos "featured"
+       · hovers e seleção */
+  --color-highlight: var(--brand-sand);
+  --color-highlight-hover: #c9a373;
+  --color-highlight-soft: rgba(221, 186, 141, 0.18);
+  --color-highlight-strong: #8a6638;   /* sand profundo, único nível seguro para AA em texto */
+
+  /* Alias legado — ainda usado pelo eyebrow filete. */
+  --color-detail: var(--brand-sand);
+
+  /* Superfícies inversas (hero, footer, blocos institucionais).
+     Cream sobrevive aqui como texto de alto contraste sobre petrol. */
+  --color-bg-inverse: var(--brand-petrol);
+  --color-surface-inverse: #0e2335;
+  --color-text-inverse: var(--brand-cream);
+  --color-text-inverse-muted: rgba(238, 234, 219, 0.72);
+  --color-text-inverse-subtle: rgba(238, 234, 219, 0.55);
+  --color-border-inverse: rgba(112, 153, 179, 0.30);
+
+  /* Ação principal (CTA) — petrol sobre fundo claro, cream sobre fundo escuro.
+     Sand NÃO é usado em CTA — fica como detalhe decorativo apenas. */
+  --color-action: var(--brand-petrol);
+  --color-action-hover: #0e2335;
+  --color-action-text: var(--brand-cream);
+  --color-action-inverse: var(--brand-cream);
+  --color-action-inverse-hover: var(--brand-white);
+  --color-action-inverse-text: var(--brand-petrol);
+
+  /* Estados semânticos */
+  --color-success: #2f6b3a;
+  --color-warning: #a85e10;
+  --color-error: #b23a2b;
+
+  /* Foco visível */
+  --color-focus-ring: var(--brand-petrol);
+
+  /* ────────────────────────────────────────────────────────────────────────
+     2. TIPOGRAFIA
+     ──────────────────────────────────────────────────────────────────────── */
+  --font-display: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Escala tipográfica — proporção 1.250 (major third) a partir de 16px */
+  --text-xs: 0.75rem;       /* 12 */
+  --text-sm: 0.875rem;      /* 14 */
+  --text-base: 1rem;        /* 16 */
+  --text-lg: 1.125rem;      /* 18 */
+  --text-xl: 1.25rem;       /* 20 */
+  --text-2xl: 1.5rem;       /* 24 */
+  --text-3xl: 1.875rem;     /* 30 */
+  --text-4xl: 2.25rem;      /* 36 */
+  --text-5xl: 3rem;         /* 48 */
+  --text-6xl: 3.75rem;      /* 60 */
+  --text-7xl: 4.5rem;       /* 72 */
+  --text-8xl: 5.5rem;       /* 88 */
+
+  /* Alturas de linha */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+  --leading-loose: 1.85;
+
+  /* Tracking */
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.16em;
+
+  /* Pesos */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ────────────────────────────────────────────────────────────────────────
+     3. ESPAÇAMENTO — preferência por mais respiro (princípio do guia)
+     ──────────────────────────────────────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 0.25rem;       /* 4 */
+  --space-2: 0.5rem;        /* 8 */
+  --space-3: 0.75rem;       /* 12 */
+  --space-4: 1rem;          /* 16 */
+  --space-5: 1.5rem;        /* 24 */
+  --space-6: 2rem;          /* 32 */
+  --space-7: 3rem;          /* 48 */
+  --space-8: 4rem;          /* 64 */
+  --space-9: 6rem;          /* 96 */
+  --space-10: 8rem;         /* 128 */
+  --space-11: 10rem;        /* 160 */
+  --space-12: 12rem;        /* 192 */
+
+  /* Rítmo seccional vertical */
+  --section-y: clamp(var(--space-8), 10vw, var(--space-11));
+  --section-y-sm: clamp(var(--space-7), 7vw, var(--space-9));
+  --section-y-lg: clamp(var(--space-9), 13vw, var(--space-12));
+
+  /* ────────────────────────────────────────────────────────────────────────
+     4. LAYOUT
+     ──────────────────────────────────────────────────────────────────────── */
+  --container-narrow: 44rem;    /* 704, leitura intensa */
+  --container: 72rem;           /* 1152, padrão */
+  --container-wide: 88rem;      /* 1408, hero e galerias */
+  --container-px: clamp(var(--space-4), 4vw, var(--space-7));
+
+  --grid-cols: 12;
+  --grid-gap: clamp(var(--space-4), 2vw, var(--space-6));
+
+  /* Breakpoints (referência para queries) */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+
+  /* ────────────────────────────────────────────────────────────────────────
+     5. RADIUS, SOMBRAS, BORDAS
+     ──────────────────────────────────────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-pill: 9999px;
+
+  --shadow-xs: 0 1px 2px rgba(23, 55, 78, 0.05);
+  --shadow-sm: 0 1px 3px rgba(23, 55, 78, 0.07), 0 1px 2px rgba(23, 55, 78, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(23, 55, 78, 0.09),
+    0 2px 6px -2px rgba(23, 55, 78, 0.05);
+  --shadow-lg: 0 16px 32px -8px rgba(23, 55, 78, 0.14),
+    0 6px 12px -6px rgba(23, 55, 78, 0.07);
+  --shadow-xl: 0 28px 56px -16px rgba(23, 55, 78, 0.18);
+
+  --border-width: 1px;
+
+  /* ────────────────────────────────────────────────────────────────────────
+     6. MOVIMENTO
+     ──────────────────────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+
+  /* ────────────────────────────────────────────────────────────────────────
+     7. Z-INDEX
+     ──────────────────────────────────────────────────────────────────────── */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-overlay: 800;
+  --z-modal: 900;
+  --z-toast: 1000;
+}
+
+/* Reduz movimento se o usuário preferir */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

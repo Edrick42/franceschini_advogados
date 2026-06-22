@@ -1,0 +1,28 @@
+{
+  "order": 4,
+  "slug": "recuperacao-judicial",
+  "name": {
+    "pt": "Recuperação Judicial",
+    "en": "Judicial Recovery"
+  },
+  "summary": {
+    "pt": "Reestruturação societária e patrimonial em cenários complexos.",
+    "en": "Corporate and asset restructuring in complex scenarios."
+  },
+  "description": {
+    "pt": "Assessoria a empresas em recuperação judicial e extrajudicial, com foco em preservar valor e estruturar planos viáveis para credores e devedores.",
+    "en": "Advisory to companies in judicial and out-of-court recovery, focused on preserving value and structuring viable plans for both creditors and debtors."
+  },
+  "typicalCases": {
+    "pt": [
+      "Recuperação judicial e extrajudicial",
+      "Negociação com credores estratégicos",
+      "Assessoria a investidores e devedores"
+    ],
+    "en": [
+      "Judicial and out-of-court recovery",
+      "Strategic creditor negotiations",
+      "Advisory to investors and debtors"
+    ]
+  }
+}

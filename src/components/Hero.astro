@@ -1,0 +1,135 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  lede?: string;
+  ctaPrimary?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+}
+
+const { eyebrow, heading, lede, ctaPrimary, ctaSecondary } = Astro.props;
+---
+
+<section class="hero" data-reveal data-bg="petrol">
+  <div class="hero__pattern" aria-hidden="true"></div>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__inner">
+      {eyebrow && <p class="hero__eyebrow eyebrow eyebrow--inverse">{eyebrow}</p>}
+      <h1 class="hero__heading">{heading}</h1>
+      {lede && <p class="hero__lede">{lede}</p>}
+      {
+        (ctaPrimary || ctaSecondary) && (
+          <div class="hero__cta">
+            {ctaPrimary && (
+              <Button href={ctaPrimary.href} variant="primary" inverse>
+                {ctaPrimary.label}
+              </Button>
+            )}
+            {ctaSecondary && (
+              <Button href={ctaSecondary.href} variant="ghost" inverse>
+                {ctaSecondary.label}
+              </Button>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--color-bg-inverse);
+    color: var(--color-text-inverse);
+    padding-block: clamp(var(--space-9), 15vw, var(--space-12));
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Padrão da marca — marca d'água em todo o hero. */
+  .hero__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("/patterns/pattern-4.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.18;
+    mix-blend-mode: luminosity;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Véu sutil que escurece o pattern sem apagá-lo,
+     garantindo contraste para o texto. */
+  .hero__veil {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(14, 35, 53, 0.7) 0%,
+        rgba(14, 35, 53, 0.45) 50%,
+        rgba(14, 35, 53, 0.35) 100%
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__inner {
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .hero__eyebrow {
+    position: relative;
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+  .hero__eyebrow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 1px;
+    background: var(--color-detail);
+  }
+
+  .hero__heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-text-inverse);
+    text-wrap: balance;
+  }
+
+  .hero__lede {
+    font-size: clamp(var(--text-lg), 2.2vw, var(--text-2xl));
+    line-height: var(--leading-snug);
+    color: var(--color-text-inverse-muted);
+    max-width: 38rem;
+    text-wrap: pretty;
+  }
+
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+</style>

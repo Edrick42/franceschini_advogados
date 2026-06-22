@@ -1,0 +1,240 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import { getCollection } from "astro:content";
+import { t } from "~/i18n/utils";
+const dict = t("en");
+
+const members = (await getCollection("team")).sort((a, b) => a.data.order - b.data.order);
+const founder = members.find((m) => m.data.isFounder);
+const others = members.filter((m) => !m.data.isFounder);
+
+function initials(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  return (parts[0]?.[0] ?? "") + (parts[parts.length - 1]?.[0] ?? "");
+}
+---
+
+<Layout title={dict.team.eyebrow} description={dict.team.lede}>
+  <PageHero eyebrow={dict.team.eyebrow} heading={dict.team.heading} lede={dict.team.lede} />
+
+  {founder && (
+    <Section container="wide">
+      <div class="founder">
+        <div class="founder__photo">
+          {founder.data.photo ? (
+            <img src={founder.data.photo} alt={founder.data.name} loading="eager" decoding="async" />
+          ) : (
+            <span aria-hidden="true">{initials(founder.data.name)}</span>
+          )}
+        </div>
+        <div class="founder__body">
+          <p class="eyebrow">{dict.team.foundedBy}</p>
+          <h2 class="founder__name">{founder.data.name}</h2>
+          <p class="founder__role">{founder.data.role.en}</p>
+          <div class="founder__bio">
+            {founder.data.fullBio.en.length > 0
+              ? founder.data.fullBio.en.map((p) => <p>{p}</p>)
+              : <p>{founder.data.bio.en}</p>}
+          </div>
+        </div>
+      </div>
+    </Section>
+  )}
+
+  {others.length > 0 && (
+    <Section variant="surface">
+      <div class="lead-grid">
+        <div class="lead-grid__col-label">
+          <p class="eyebrow">Team</p>
+        </div>
+        <div class="lead-grid__col-body">
+          <h2 class="lead-grid__heading">Partners and associate attorneys.</h2>
+        </div>
+      </div>
+
+      <ul class="team-grid">
+        {others.map((member) => (
+          <li class="team-card">
+            <div class="team-card__photo">
+              {member.data.photo ? (
+                <img src={member.data.photo} alt={member.data.name} loading="lazy" decoding="async" />
+              ) : (
+                <span aria-hidden="true">{initials(member.data.name)}</span>
+              )}
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__role">{member.data.role.en}</p>
+              <h3 class="team-card__name">{member.data.name}</h3>
+              <p class="team-card__bio">{member.data.bio.en}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )}
+</Layout>
+
+<style>
+  .founder {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 800px) {
+    .founder {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-9);
+      align-items: start;
+    }
+  }
+  .founder__photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(23, 55, 78, 0.86), rgba(14, 35, 53, 0.94)),
+      url("/patterns/pattern-2.webp");
+    background-size: cover;
+    color: var(--color-text-inverse);
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+  }
+  .founder__photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+  }
+  .founder__photo span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .founder__body p.eyebrow {
+    margin-bottom: var(--space-3);
+  }
+  .founder__name {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl));
+    font-weight: var(--weight-regular);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-strong);
+  }
+  .founder__role {
+    margin-top: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+  .founder__bio {
+    margin-top: var(--space-6);
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .lead-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  @media (min-width: 768px) {
+    .lead-grid {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: var(--space-7);
+      align-items: baseline;
+    }
+  }
+  .lead-grid__heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-strong);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  @media (min-width: 640px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .team-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .team-card__photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background:
+      linear-gradient(180deg, rgba(23, 55, 78, 0.86), rgba(14, 35, 53, 0.94)),
+      url("/patterns/pattern-1.webp");
+    background-size: cover;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    color: var(--color-text-inverse);
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+  }
+  .team-card__photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  .team-card__photo span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .team-card__role {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .team-card__name {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-xl), 2.4vw, var(--text-2xl));
+    font-weight: var(--weight-regular);
+    color: var(--color-text-strong);
+    margin-block: var(--space-2);
+    line-height: 1.15;
+  }
+  .team-card__bio {
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+</style>

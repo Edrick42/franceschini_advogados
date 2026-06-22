@@ -1,0 +1,248 @@
+/* ============================================================================
+   GLOBAL · tipografia base, utilitários, layout primitivos
+   ============================================================================ */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-feature-settings: "ss01", "ss02", "kern", "liga";
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+   TIPOGRAFIA — hierarquia em 3 níveis (princípio 5 do guia)
+   ──────────────────────────────────────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-text-strong);
+}
+
+h1,
+.h1 {
+  font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl));
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tighter);
+}
+
+h2,
+.h2 {
+  font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl));
+  line-height: 1.1;
+}
+
+h3,
+.h3 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
+  line-height: 1.2;
+}
+
+h4,
+h5,
+h6,
+.h4 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+p {
+  line-height: var(--leading-relaxed);
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+a {
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-text-strong);
+}
+
+/* Eyebrow — pequena etiqueta acima de títulos de seção */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: inline-block;
+}
+
+.eyebrow--inverse {
+  color: var(--color-text-inverse-muted);
+}
+
+/* Lede — primeira linha forte sob h1 */
+.lede {
+  font-size: clamp(var(--text-lg), 2.2vw, var(--text-2xl));
+  line-height: var(--leading-snug);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-regular);
+  max-width: 48rem;
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+   LAYOUT
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+section {
+  padding-block: var(--section-y);
+}
+
+/* Divisor sutil entre seções vizinhas que compartilham o mesmo fundo.
+   Sem isso, dois blocos cream/cream ou petrol/petrol seguidos viram
+   uma faixa uniforme sem leitura visual de "mudei de assunto". */
+[data-bg="cream"] + [data-bg="cream"],
+[data-bg="surface"] + [data-bg="surface"],
+[data-bg="petrol"] + [data-bg="petrol"],
+[data-bg="soft"] + [data-bg="soft"] {
+  position: relative;
+}
+
+[data-bg="cream"] + [data-bg="cream"]::before,
+[data-bg="surface"] + [data-bg="surface"]::before,
+[data-bg="petrol"] + [data-bg="petrol"]::before,
+[data-bg="soft"] + [data-bg="soft"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(
+    calc(100% - 2 * var(--container-px)),
+    var(--container)
+  );
+  height: 1px;
+  background: var(--color-rule);
+  pointer-events: none;
+}
+
+[data-bg="petrol"] + [data-bg="petrol"]::before {
+  background: var(--color-border-inverse);
+}
+
+.section--inverse {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.section--inverse h1,
+.section--inverse h2,
+.section--inverse h3,
+.section--inverse .display {
+  color: var(--color-text-inverse);
+}
+
+.section--inverse .lede {
+  color: var(--color-text-inverse-muted);
+}
+
+.section--inverse .eyebrow {
+  color: var(--color-text-inverse-subtle);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+/* Grid 12 colunas (princípio 4 do guia) */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+   UTILS
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-md);
+  z-index: var(--z-toast);
+  transition: top var(--duration-base) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Divisor sutil */
+hr,
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-block: var(--space-7);
+}
+
+/* Marca seletora — petrol claro suave */
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-text-strong);
+}
+
+.section--inverse ::selection {
+  background: rgba(238, 234, 219, 0.25);
+  color: var(--color-text-inverse);
+}
+
+/* Reveal-on-scroll (script em /scripts/reveal.js) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

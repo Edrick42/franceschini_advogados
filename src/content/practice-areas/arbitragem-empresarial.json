@@ -1,0 +1,28 @@
+{
+  "order": 3,
+  "slug": "arbitragem-empresarial",
+  "name": {
+    "pt": "Arbitragem Empresarial",
+    "en": "Commercial Arbitration"
+  },
+  "summary": {
+    "pt": "Conduzir disputas privadas com a profundidade que o caso exige.",
+    "en": "Conducting private disputes with the depth each matter demands."
+  },
+  "description": {
+    "pt": "Representação em arbitragens institucionais e ad hoc, com construção estratégica desde a escolha dos árbitros até a sustentação da tese.",
+    "en": "Representation in institutional and ad hoc arbitrations, with strategy from arbitrator selection through final argument."
+  },
+  "typicalCases": {
+    "pt": [
+      "Arbitragens societárias e M&A",
+      "Conflitos contratuais entre empresas",
+      "Disputas envolvendo concessões e regulação"
+    ],
+    "en": [
+      "Corporate and M&A arbitrations",
+      "Inter-company contractual disputes",
+      "Concession and regulatory disputes"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "order": 2,
+  "slug": "recursos-especiais",
+  "name": {
+    "pt": "Recursos Especiais",
+    "en": "Special Appeals"
+  },
+  "summary": {
+    "pt": "Atuação perante tribunais superiores — STJ e STF.",
+    "en": "Practice before Brazil's higher courts — STJ and STF."
+  },
+  "description": {
+    "pt": "Recursos extraordinários e especiais com foco na construção argumentativa que resiste ao filtro dos tribunais superiores. Acompanhamento direto até o resultado.",
+    "en": "Extraordinary and special appeals with focus on argumentative depth that holds up before the higher courts. Direct follow-through until the outcome."
+  },
+  "typicalCases": {
+    "pt": [
+      "Recursos especiais ao STJ",
+      "Recursos extraordinários ao STF",
+      "Embargos de divergência e revisões"
+    ],
+    "en": [
+      "Special appeals to the STJ",
+      "Extraordinary appeals to the STF",
+      "Divergence motions and reviews"
+    ]
+  }
+}

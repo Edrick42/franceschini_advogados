@@ -1,0 +1,135 @@
+{
+  "locale": "en-US",
+  "language": "English",
+  "languageSwitch": {
+    "label": "Language",
+    "current": "English",
+    "other": "Português",
+    "otherCode": "PT"
+  },
+  "skipLink": "Skip to main content",
+  "nav": {
+    "menu": "Menu",
+    "close": "Close",
+    "open": "Open menu"
+  },
+  "home": {
+    "eyebrow": "Strategic litigation · Rio · Brasília",
+    "heading": "Decisive litigation demands strategy from the start.",
+    "lede": "We are a boutique firm focused on strategic litigation. We take on a limited number of cases, with direct partner involvement and strategy designed case by case.",
+    "ctaPrimary": "Schedule a meeting",
+    "ctaSecondary": "About the firm",
+    "areasHeading": "Practice areas",
+    "areasLede": "High-impact matters where the outcome depends on technical reading and how the argument is built.",
+    "areasCta": "Explore all areas",
+    "teamHeading": "Leadership",
+    "teamLede": "A lean team with partners directly engaged in every matter.",
+    "teamCta": "Meet the team",
+    "publicationsHeading": "Recent publications",
+    "publicationsLede": "Technical positions and case-law readings authored by the firm.",
+    "publicationsCta": "All publications",
+    "closingHeading": "The firm you haven't met yet.",
+    "closingLede": "Let's talk about your case."
+  },
+  "firm": {
+    "eyebrow": "The Firm",
+    "heading": "An institution built on selectivity.",
+    "lede": "Franceschini operates by choice — not volume. Each matter receives the technical depth its impact demands.",
+    "missionHeading": "Mission",
+    "missionBody": "To act as strategic counsel to clients facing litigation that is decisive to their businesses and assets — with rigorous technical reading, argumentative depth, and direct partner presence.",
+    "valuesHeading": "Values",
+    "values": [
+      {
+        "title": "Real selectivity",
+        "body": "We accept a limited number of matters each year to guarantee depth on every one."
+      },
+      {
+        "title": "Strategy before tactics",
+        "body": "Each case begins with an honest reading of the scenario — then we build the strategy."
+      },
+      {
+        "title": "Leadership presence",
+        "body": "Partners are directly involved in decisions and execution."
+      },
+      {
+        "title": "Institutional discretion",
+        "body": "We work away from the noise. Outcome matters more than visibility."
+      }
+    ],
+    "architectureHeading": "Brand architecture",
+    "architectureBody": "Franceschini Advogados Associados is an autonomous institution. Its intellectual leadership gathers professionals with their own trajectories — including its founder, Helem Franceschini, whose technical authority shapes the firm's positioning but does not exhaust it."
+  },
+  "team": {
+    "eyebrow": "Team",
+    "heading": "Technical depth, direct presence.",
+    "lede": "Intentionally lean. Every matter is led with active partner involvement.",
+    "foundedBy": "Founder"
+  },
+  "practice": {
+    "eyebrow": "Practice",
+    "heading": "Four areas where strategy outweighs volume.",
+    "lede": "Our focus is litigation where the outcome depends on how the case is built — not just how it is defended.",
+    "areasHeading": "Areas",
+    "approachHeading": "How we work",
+    "approachBody": "We treat every matter as a unique scenario. The first step is to understand what is at stake — for the client and for the sector. The strategy is built from there."
+  },
+  "publications": {
+    "eyebrow": "Publications",
+    "heading": "Technical readings and positions.",
+    "lede": "Articles and case-law analysis written by the firm.",
+    "empty": "New publications coming soon.",
+    "readMore": "Read article",
+    "readingTime": "min read",
+    "by": "By",
+    "publishedOn": "Published on",
+    "all": "All publications",
+    "categories": {
+      "Contencioso": "Litigation",
+      "Recursos": "Appeals",
+      "Arbitragem": "Arbitration",
+      "Recuperacao": "Recovery"
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's talk about your case.",
+    "lede": "Send a message or schedule a meeting directly. We reply within two business days.",
+    "schedulingHeading": "Schedule with Helem",
+    "schedulingBody": "Initial meetings are led by the firm's founder. Pick a slot on the calendar.",
+    "schedulingCta": "Schedule a meeting",
+    "formHeading": "Send a message",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formPhone": "Phone (optional)",
+    "formSubject": "Subject",
+    "formMessage": "Message",
+    "formSubmit": "Send message",
+    "formSubmitting": "Sending…",
+    "formSuccess": "Message received. We'll respond within two business days.",
+    "formError": "We couldn't send your message. Please email contato@franceschiniadvogados.com.br directly.",
+    "formConsent": "I agree with the Privacy Policy and the processing of my data to respond to this contact.",
+    "addressesHeading": "Offices",
+    "officeHoursHeading": "Hours",
+    "officeHoursBody": "Monday to Friday · 9 am to 6 pm (Brasília time)"
+  },
+  "footer": {
+    "tagline": "Strategic litigation boutique",
+    "rights": "All rights reserved.",
+    "by": "Site by",
+    "byHref": "https://www.andreafaria.marketing",
+    "byName": "Andréa Faria Marketing"
+  },
+  "cookies": {
+    "title": "About cookies on this site",
+    "body": "We use cookies to understand site usage and improve navigation. You can accept all or essentials only.",
+    "essentialOnly": "Essentials only",
+    "acceptAll": "Accept all",
+    "managePrivacy": "Privacy Policy"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "heading": "Page not found.",
+    "lede": "The address you accessed does not exist or has been removed.",
+    "cta": "Back to Home"
+  }
+}

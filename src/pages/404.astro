@@ -1,0 +1,78 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Button from "~/components/Button.astro";
+import { getLocale, t } from "~/i18n/utils";
+const locale = getLocale(Astro.url);
+const dict = t(locale);
+const homeHref = locale === "pt" ? "/" : "/en/";
+---
+
+<Layout title={dict.notFound.heading} noindex>
+  <section class="not-found">
+    <div class="container not-found__inner">
+      <img
+        src="/logos/symbol-petrol-soft.svg"
+        alt=""
+        aria-hidden="true"
+        class="not-found__symbol"
+        loading="eager"
+      />
+      <div class="not-found__body">
+        <p class="eyebrow">{dict.notFound.eyebrow}</p>
+        <h1 class="not-found__heading">{dict.notFound.heading}</h1>
+        <p class="not-found__lede">{dict.notFound.lede}</p>
+        <div class="not-found__cta">
+          <Button href={homeHref} variant="primary">{dict.notFound.cta}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--section-y);
+  }
+  .not-found__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+  @media (min-width: 800px) {
+    .not-found__inner {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: var(--space-9);
+    }
+  }
+  .not-found__symbol {
+    width: clamp(140px, 22vw, 280px);
+    height: auto;
+    opacity: 0.55;
+    justify-self: start;
+  }
+  .not-found p.eyebrow {
+    color: var(--color-highlight-strong);
+    margin-bottom: var(--space-3);
+  }
+  .not-found__heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-text-strong);
+  }
+  .not-found__lede {
+    margin-top: var(--space-5);
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    color: var(--color-text-muted);
+    max-width: 32rem;
+  }
+  .not-found__cta {
+    margin-top: var(--space-7);
+  }
+</style>

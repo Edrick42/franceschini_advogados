@@ -1,0 +1,81 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  lede?: string;
+  variant?: "default" | "inverse";
+}
+
+const { eyebrow, heading, lede, variant = "default" } = Astro.props;
+---
+
+<section
+  class:list={["page-hero", `page-hero--${variant}`]}
+  data-reveal
+  data-bg={variant === "inverse" ? "petrol" : "cream"}
+>
+  <div class="container">
+    {eyebrow && (
+      <p class={`eyebrow ${variant === "inverse" ? "eyebrow--inverse" : ""}`}>
+        {eyebrow}
+      </p>
+    )}
+    <h1 class="page-hero__heading">{heading}</h1>
+    {lede && <p class="page-hero__lede">{lede}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding-block: clamp(var(--space-9), 12vw, var(--space-11)) var(--space-9);
+    background: var(--color-bg);
+  }
+
+  .page-hero--inverse {
+    background: var(--color-bg-inverse);
+    color: var(--color-text-inverse);
+  }
+
+  .page-hero p.eyebrow {
+    position: relative;
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  .page-hero p.eyebrow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 1px;
+    background: var(--color-detail);
+  }
+
+  .page-hero__heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+    line-height: 1.04;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-text-strong);
+    max-width: 32ch;
+    text-wrap: balance;
+  }
+
+  .page-hero--inverse .page-hero__heading {
+    color: var(--color-text-inverse);
+  }
+
+  .page-hero__lede {
+    margin-top: var(--space-5);
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    line-height: var(--leading-snug);
+    color: var(--color-text-muted);
+    max-width: 44rem;
+  }
+
+  .page-hero--inverse .page-hero__lede {
+    color: var(--color-text-inverse-muted);
+  }
+</style>

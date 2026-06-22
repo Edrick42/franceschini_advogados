@@ -1,0 +1,199 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import Button from "~/components/Button.astro";
+import { getCollection, render } from "astro:content";
+import { t } from "~/i18n/utils";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles-pt", ({ data }) => !data.draft);
+  return articles.map((article) => ({
+    params: { slug: article.id.replace(/\.md$/, "") },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const dict = t("pt");
+const { Content } = await render(article);
+const categoryLabel: Record<string, string> = dict.publications.categories;
+const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<Layout
+  title={article.data.title}
+  description={article.data.description}
+>
+  <article class="article">
+    <Section container="narrow" size="sm">
+      <p class="eyebrow">
+        <span class="eyebrow__cat">{categoryLabel[article.data.category]}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={article.data.date.toISOString()}>
+          {dateFormatter.format(article.data.date)}
+        </time>
+      </p>
+      <h1 class="article__title">{article.data.title}</h1>
+      <p class="article__lede">{article.data.description}</p>
+      <p class="article__by">
+        {dict.publications.by} <strong>{article.data.author}</strong>
+      </p>
+    </Section>
+
+    {article.data.hero && (
+      <Section container="wide" size="sm">
+        <figure class="article__hero">
+          <img
+            src={article.data.hero}
+            alt={article.data.heroAlt ?? article.data.title}
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </Section>
+    )}
+
+    <Section container="narrow" size="sm">
+      <div class="prose">
+        <Content />
+      </div>
+    </Section>
+
+    <Section variant="inverse" container="narrow" size="sm">
+      <div class="footer-cta">
+        <h2 class="footer-cta__heading">Conversamos sobre o seu caso?</h2>
+        <Button href="/contato" variant="primary" inverse>Agendar conversa</Button>
+      </div>
+    </Section>
+  </article>
+</Layout>
+
+<style>
+  .article p.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+  }
+  .eyebrow__cat {
+    color: var(--color-highlight-strong);
+    font-weight: var(--weight-medium);
+  }
+
+  .article__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-text-strong);
+    margin-block: var(--space-5) var(--space-6);
+  }
+
+  .article__lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(var(--text-xl), 2.4vw, var(--text-2xl));
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+
+  .article__hero {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--color-surface);
+  }
+  .article__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article__by {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+  }
+  .article__by strong {
+    color: var(--color-text-strong);
+    font-weight: var(--weight-semibold);
+  }
+
+  /* MDX content styling */
+  .prose :global(p) {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+  }
+  .prose :global(p + p) {
+    margin-top: var(--space-5);
+  }
+  .prose :global(h2) {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    color: var(--color-text-strong);
+    margin-block: var(--space-9) var(--space-4);
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.2;
+  }
+  .prose :global(h3) {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-xl);
+    color: var(--color-text-strong);
+    margin-block: var(--space-7) var(--space-3);
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-block: var(--space-5);
+    padding-left: var(--space-6);
+  }
+  .prose :global(ul) {
+    list-style: disc;
+  }
+  .prose :global(ol) {
+    list-style: decimal;
+  }
+  .prose :global(li) {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+  }
+  .prose :global(blockquote) {
+    border-left: 2px solid var(--color-highlight);
+    padding-left: var(--space-5);
+    margin-block: var(--space-7);
+    font-style: italic;
+    color: var(--color-text-muted);
+  }
+  .prose :global(a) {
+    color: var(--color-text-strong);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-highlight);
+  }
+
+  .footer-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .footer-cta__heading {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    font-weight: var(--weight-regular);
+    color: var(--color-text-inverse);
+    line-height: 1.2;
+  }
+</style>

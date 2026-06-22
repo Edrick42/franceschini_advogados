@@ -1,0 +1,58 @@
+---
+import { getLocale, getAlternatePath, t } from "~/i18n/utils";
+
+const locale = getLocale(Astro.url);
+const dict = t(locale);
+const alternatePath = getAlternatePath(Astro.url.pathname, locale);
+---
+
+<a
+  class="lang-switch"
+  href={alternatePath}
+  hreflang={locale === "pt" ? "en-US" : "pt-BR"}
+  aria-label={`${dict.languageSwitch.label}, ${dict.languageSwitch.other}`}
+>
+  {dict.languageSwitch.otherCode}
+</a>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding-inline: var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      background var(--duration-fast) var(--ease-out);
+  }
+
+  .lang-switch:hover {
+    color: var(--color-text-strong);
+    border-color: var(--color-border-strong);
+    background: var(--color-accent-soft);
+  }
+
+  :global(.section--inverse) .lang-switch,
+  :global(.header--inverse) .lang-switch {
+    color: var(--color-text-inverse-muted);
+    border-color: var(--color-border-inverse);
+  }
+
+  :global(.section--inverse) .lang-switch:hover,
+  :global(.header--inverse) .lang-switch:hover {
+    color: var(--color-text-inverse);
+    border-color: rgba(238, 234, 219, 0.5);
+    background: rgba(238, 234, 219, 0.08);
+  }
+</style>

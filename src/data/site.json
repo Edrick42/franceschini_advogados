@@ -1,0 +1,68 @@
+{
+  "name": "Franceschini Advogados Associados",
+  "shortName": "Franceschini",
+  "legalName": "Franceschini Advogados Associados",
+  "url": "https://franceschiniadvogados.com.br",
+  "logo": "/logos/symbol.svg",
+  "founded": "2014-01-01",
+  "tagline": {
+    "pt": "Boutique de contencioso estratégico",
+    "en": "Strategic litigation boutique"
+  },
+  "description": {
+    "pt": "Escritório boutique de contencioso estratégico no eixo Rio–Brasília. Atuação de alto impacto em Contencioso Estratégico, Recursos Especiais, Arbitragem Empresarial e Recuperação Judicial.",
+    "en": "Boutique law firm specialized in strategic litigation across the Rio–Brasília axis. High-impact practice in Strategic Litigation, Special Appeals, Commercial Arbitration and Judicial Recovery."
+  },
+  "contact": {
+    "email": "contato@franceschiniadvogados.com.br",
+    "phone": "+55 21 0000-0000",
+    "phoneRaw": "+552100000000",
+    "addresses": [
+      {
+        "city": "Rio de Janeiro",
+        "street": "",
+        "state": "RJ",
+        "country": "BR"
+      },
+      {
+        "city": "Brasília",
+        "street": "",
+        "state": "DF",
+        "country": "BR"
+      }
+    ]
+  },
+  "social": {
+    "linkedin": "",
+    "instagram": ""
+  },
+  "schedulingUrl": "",
+  "primaryNav": {
+    "pt": [
+      { "label": "O Escritório", "href": "/escritorio" },
+      { "label": "Equipe", "href": "/equipe" },
+      { "label": "Atuação", "href": "/atuacao" },
+      { "label": "Publicações", "href": "/publicacoes" },
+      { "label": "Contato", "href": "/contato" }
+    ],
+    "en": [
+      { "label": "The Firm", "href": "/en/firm" },
+      { "label": "Team", "href": "/en/team" },
+      { "label": "Practice", "href": "/en/practice" },
+      { "label": "Publications", "href": "/en/publications" },
+      { "label": "Contact", "href": "/en/contact" }
+    ]
+  },
+  "secondaryNav": {
+    "pt": [
+      { "label": "Política de Privacidade", "href": "/politica-privacidade" }
+    ],
+    "en": [
+      { "label": "Privacy Policy", "href": "/en/privacy-policy" }
+    ]
+  },
+  "primaryCta": {
+    "pt": { "label": "Agendar reunião", "href": "/contato" },
+    "en": { "label": "Schedule a meeting", "href": "/en/contact" }
+  }
+}

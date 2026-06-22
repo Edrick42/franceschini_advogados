@@ -1,0 +1,148 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import { getCollection } from "astro:content";
+import { t } from "~/i18n/utils";
+
+const dict = t("pt");
+
+const articles = (await getCollection("articles-pt", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
+
+const categoryLabel: Record<string, string> = dict.publications.categories;
+---
+
+<Layout title={dict.publications.eyebrow} description={dict.publications.lede}>
+  <PageHero
+    eyebrow={dict.publications.eyebrow}
+    heading={dict.publications.heading}
+    lede={dict.publications.lede}
+  />
+
+  <Section>
+    {
+      articles.length === 0 ? (
+        <p class="empty">{dict.publications.empty}</p>
+      ) : (
+        <ul class="articles">
+          {articles.map((article) => (
+            <li class="article-card">
+              <a href={`/publicacoes/${article.id.replace(/\.md$/, "")}`}>
+                <p class="meta">
+                  <span class="meta__cat">
+                    {categoryLabel[article.data.category]}
+                  </span>
+                  <time datetime={article.data.date.toISOString()}>
+                    {dateFormatter.format(article.data.date)}
+                  </time>
+                </p>
+                <h2 class="title">{article.data.title}</h2>
+                <p class="desc">{article.data.description}</p>
+                <span class="read">{dict.publications.readMore} →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </Section>
+</Layout>
+
+<style>
+  .empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+    padding-block: var(--space-8);
+  }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card a {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+    transition: padding var(--duration-fast) var(--ease-out);
+  }
+  .article-card:first-child a {
+    border-top: 1px solid var(--color-border);
+  }
+  .article-card a:hover {
+    padding-left: var(--space-3);
+  }
+
+  @media (min-width: 800px) {
+    .article-card a {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+      gap: var(--space-7);
+      align-items: baseline;
+    }
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .meta__cat {
+    color: var(--color-highlight-strong);
+    font-weight: var(--weight-medium);
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    font-weight: var(--weight-regular);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-strong);
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 800px) {
+    .title {
+      grid-column: 2;
+    }
+  }
+
+  .desc {
+    grid-column: 1 / -1;
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+  @media (min-width: 800px) {
+    .desc {
+      grid-column: 2;
+    }
+  }
+
+  .read {
+    grid-column: 1 / -1;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-strong);
+  }
+  @media (min-width: 800px) {
+    .read {
+      grid-column: 2;
+    }
+  }
+</style>

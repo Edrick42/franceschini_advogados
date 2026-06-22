@@ -1,0 +1,81 @@
+---
+interface Props {
+  variant?: "default" | "inverse" | "surface" | "cream" | "soft";
+  size?: "default" | "sm" | "lg";
+  id?: string;
+  container?: "default" | "narrow" | "wide";
+  class?: string;
+}
+
+const {
+  variant = "default",
+  size = "default",
+  container = "default",
+  id,
+  class: className,
+} = Astro.props;
+
+const variantClass: Record<string, string | null> = {
+  default: null,
+  inverse: "section--inverse",
+  surface: "section--surface",
+  cream: "section--cream",
+  soft: "section--soft",
+};
+
+/* Sinaliza a cor de fundo da seção via data-bg para que o CSS global
+   consiga desenhar um divisor sutil quando duas seções vizinhas
+   compartilham o mesmo fundo. */
+const bgFor: Record<string, string> = {
+  default: "cream",
+  cream: "cream",
+  surface: "surface",
+  inverse: "petrol",
+  soft: "soft",
+};
+const dataBg = bgFor[variant];
+
+const sizeClass: Record<string, string | null> = {
+  default: null,
+  sm: "section--sm",
+  lg: "section--lg",
+};
+
+const containerClass: Record<string, string> = {
+  default: "container",
+  narrow: "container container--narrow",
+  wide: "container container--wide",
+};
+
+const classes = ["section", variantClass[variant], sizeClass[size], className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<section class={classes} id={id} data-reveal data-bg={dataBg}>
+  <div class={containerClass[container]}>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section--sm {
+    padding-block: var(--section-y-sm);
+  }
+  .section--lg {
+    padding-block: var(--section-y-lg);
+  }
+  .section--cream {
+    background: var(--brand-cream);
+  }
+  .section--surface {
+    background: var(--color-surface);
+  }
+  .section--soft {
+    background: linear-gradient(
+      180deg,
+      rgba(112, 153, 179, 0.16) 0%,
+      rgba(112, 153, 179, 0.28) 100%
+    );
+  }
+</style>

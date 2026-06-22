@@ -1,0 +1,28 @@
+{
+  "order": 1,
+  "slug": "contencioso-estrategico",
+  "name": {
+    "pt": "Contencioso Estratégico",
+    "en": "Strategic Litigation"
+  },
+  "summary": {
+    "pt": "Litígios decisivos para o negócio ou o patrimônio do cliente.",
+    "en": "Litigation decisive to the client's business or assets."
+  },
+  "description": {
+    "pt": "Atuação em disputas de alto impacto onde o resultado depende da construção da tese e da leitura técnica do cenário. Cada caso recebe envolvimento direto da liderança do escritório.",
+    "en": "Practice in high-impact disputes where the outcome depends on building the legal thesis and on a precise reading of the scenario. Each matter receives direct involvement from the firm's leadership."
+  },
+  "typicalCases": {
+    "pt": [
+      "Disputas societárias e contratuais complexas",
+      "Litígios envolvendo regulação setorial",
+      "Casos com repercussão patrimonial relevante"
+    ],
+    "en": [
+      "Complex corporate and contractual disputes",
+      "Litigation involving sector regulation",
+      "Matters with material asset exposure"
+    ]
+  }
+}

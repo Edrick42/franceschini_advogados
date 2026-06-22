@@ -1,0 +1,74 @@
+/* Preview do Decap CMS — aproxima visual do site real */
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", -apple-system, sans-serif;
+  color: #2a2926;
+  background: #eeeadb;
+  padding: 32px 24px;
+}
+
+h1 {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  margin-block: 0.5rem 1rem;
+}
+
+h2 {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-block: 2rem 0.75rem;
+  color: #1a1a1a;
+}
+
+h3 {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-block: 1.5rem 0.5rem;
+  color: #1a1a1a;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1em;
+  max-width: 38em;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5e5e5e;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #17374e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+blockquote {
+  border-left: 2px solid #ddba8d;
+  padding-left: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #5e5e5e;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-block: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}

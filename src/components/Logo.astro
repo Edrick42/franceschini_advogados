@@ -1,0 +1,91 @@
+---
+type Color = "petrol" | "ink" | "cream" | "white" | "petrol-soft" | "sand" | "bicolor";
+type Shape =
+  | "symbol"
+  | "wordmark"      /* só "FRANCESCHINI" — ratio 5.68 */
+  | "wordmark-sub"  /* "FRANCESCHINI" + "ADVOGADOS ASSOCIADOS" — ratio 4.68 */
+  | "lockup-h"      /* símbolo à esquerda + wordmark — ratio 2.14 */
+  | "lockup-v";     /* símbolo em cima do wordmark — vertical */
+
+interface Props {
+  shape?: Shape;
+  color?: Color;
+  href?: string | null;
+  ariaLabel?: string;
+  /** Altura em px (controla o tamanho renderizado). */
+  size?: number;
+}
+
+const {
+  shape = "wordmark-sub",
+  color = "petrol",
+  href = "/",
+  ariaLabel = "Franceschini Advogados Associados",
+  size,
+} = Astro.props;
+
+/* Combinações válidas exportadas (presentes em /public/logos/). */
+const valid: Record<Shape, Color[]> = {
+  symbol: ["petrol", "ink", "cream", "white", "petrol-soft", "sand", "bicolor"],
+  wordmark: ["petrol", "ink", "cream", "white", "petrol-soft", "sand"],
+  "wordmark-sub": ["petrol", "ink", "cream", "white", "bicolor"],
+  "lockup-h": ["petrol", "cream", "white", "bicolor"],
+  "lockup-v": ["ink"],
+};
+
+/* Fallback: se a combinação requerida não existir, devolve a primeira válida. */
+const resolvedColor = valid[shape].includes(color) ? color : valid[shape][0];
+
+const filenameColor = resolvedColor === "bicolor"
+  ? (shape === "symbol" ? "bicolor-petrol-sand" : "bicolor")
+  : resolvedColor;
+
+const src = `/logos/${shape}-${filenameColor}.svg`;
+
+/* Alturas-padrão por shape — escolhidas para manter peso visual semelhante. */
+const defaultHeight: Record<Shape, number> = {
+  symbol: 36,
+  wordmark: 22,
+  "wordmark-sub": 36,
+  "lockup-h": 44,
+  "lockup-v": 80,
+};
+const renderedHeight = size ?? defaultHeight[shape];
+
+const Tag = href ? "a" : "span";
+---
+
+<Tag
+  class:list={["logo", `logo--${shape}`, `logo--${resolvedColor}`]}
+  style={`--logo-h:${renderedHeight}px`}
+  {...href
+    ? { href, "aria-label": ariaLabel }
+    : { "aria-label": ariaLabel, role: "img" }}
+>
+  <img
+    src={src}
+    alt=""
+    aria-hidden="true"
+    height={renderedHeight}
+    loading="eager"
+    decoding="async"
+  />
+</Tag>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    color: inherit;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+  .logo:hover {
+    opacity: 0.82;
+  }
+  .logo img {
+    height: var(--logo-h);
+    width: auto;
+    display: block;
+  }
+</style>

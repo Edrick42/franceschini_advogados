@@ -1,0 +1,90 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import site from "~/data/site.json";
+---
+
+<Layout
+  title="Privacy Policy"
+  description="How Franceschini Advogados Associados handles personal data."
+>
+  <PageHero
+    eyebrow="Compliance"
+    heading="Privacy Policy"
+    lede="How we handle personal data collected on this site, in line with the Brazilian General Data Protection Law (LGPD)."
+  />
+
+  <Section container="narrow">
+    <div class="legal">
+      <h2>1. Data we collect</h2>
+      <p>
+        We collect only the data you directly provide via the contact form (name, email, optional phone, subject and message) and, with your consent, anonymized navigation data through Google Analytics 4 and Microsoft Clarity to understand site usage.
+      </p>
+
+      <h2>2. Purpose</h2>
+      <p>
+        Contact data is processed solely to respond to your request. Navigation data is processed for aggregated statistical purposes and continuous site improvement.
+      </p>
+
+      <h2>3. Legal basis</h2>
+      <p>
+        Processing is based on your express consent (LGPD art. 7, I) — you must check the consent box on the form — and on legitimate interest for anonymized statistical analysis (art. 7, IX).
+      </p>
+
+      <h2>4. Sharing</h2>
+      <p>
+        We do not sell, rent or share your data with third parties for commercial purposes. We use technical providers (email delivery, hosting, analytics) that process data on the firm's behalf under data processing agreements.
+      </p>
+
+      <h2>5. Retention</h2>
+      <p>
+        Messages received via the form are retained for the time required to answer your request and comply with any legal obligations.
+      </p>
+
+      <h2>6. Your rights</h2>
+      <p>
+        At any time, you may request access, correction, anonymization, portability or deletion of your data, as well as revoke your consent. To exercise these rights, please write to {site.contact.email}.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        We use essential cookies necessary for site functioning and analytics cookies only after your express consent, given through the banner shown on your first visit.
+      </p>
+
+      <h2>8. Updates</h2>
+      <p>
+        This policy may be updated. The version in force is always the one published on this page.
+      </p>
+
+      <p class="updated">Last updated: June 2026</p>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .legal h2 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-xl);
+    color: var(--color-text-strong);
+    margin-block: var(--space-7) var(--space-3);
+    line-height: 1.2;
+  }
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+  .legal p {
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+  }
+  .legal p + p {
+    margin-top: var(--space-4);
+  }
+  .updated {
+    margin-top: var(--space-8);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

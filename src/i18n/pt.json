@@ -1,0 +1,135 @@
+{
+  "locale": "pt-BR",
+  "language": "Português",
+  "languageSwitch": {
+    "label": "Idioma",
+    "current": "Português",
+    "other": "English",
+    "otherCode": "EN"
+  },
+  "skipLink": "Pular para o conteúdo principal",
+  "nav": {
+    "menu": "Menu",
+    "close": "Fechar",
+    "open": "Abrir menu"
+  },
+  "home": {
+    "eyebrow": "Contencioso estratégico · Rio · Brasília",
+    "heading": "Litígios decisivos exigem estratégia de origem.",
+    "lede": "Somos um boutique de contencioso estratégico. Atendemos poucos clientes, com envolvimento direto da liderança e estratégia desenhada caso a caso.",
+    "ctaPrimary": "Agendar reunião",
+    "ctaSecondary": "Conheça o escritório",
+    "areasHeading": "Áreas de atuação",
+    "areasLede": "Casos de alto impacto onde o resultado depende de leitura técnica e construção argumentativa.",
+    "areasCta": "Ver todas as áreas",
+    "teamHeading": "Liderança",
+    "teamLede": "Equipe enxuta, com atuação direta dos sócios em cada caso.",
+    "teamCta": "Conheça a equipe",
+    "publicationsHeading": "Publicações recentes",
+    "publicationsLede": "Posicionamentos técnicos e leituras de jurisprudência produzidos pelo escritório.",
+    "publicationsCta": "Todas as publicações",
+    "closingHeading": "O escritório que você ainda não conheceu.",
+    "closingLede": "Vamos conversar sobre o seu caso."
+  },
+  "firm": {
+    "eyebrow": "O escritório",
+    "heading": "Uma instituição construída sobre seletividade.",
+    "lede": "O Franceschini opera por escolha — não por volume. Cada caso recebe a profundidade técnica que o seu impacto exige.",
+    "missionHeading": "Missão",
+    "missionBody": "Atuar como conselheiro estratégico de clientes que enfrentam litígios decisivos para seus negócios e patrimônios — com leitura técnica rigorosa, profundidade argumentativa e presença direta da liderança.",
+    "valuesHeading": "Valores",
+    "values": [
+      {
+        "title": "Seletividade real",
+        "body": "Recebemos um número limitado de casos por ano para garantir profundidade em cada um."
+      },
+      {
+        "title": "Estratégia antes da técnica",
+        "body": "Cada caso começa por uma leitura honesta do cenário — então construímos a estratégia."
+      },
+      {
+        "title": "Presença da liderança",
+        "body": "Os sócios estão envolvidos diretamente nas decisões e na execução."
+      },
+      {
+        "title": "Discrição institucional",
+        "body": "Trabalhamos longe do barulho. Resultado importa mais que visibilidade."
+      }
+    ],
+    "architectureHeading": "Arquitetura de marca",
+    "architectureBody": "O Franceschini Advogados Associados é uma instituição autônoma. Sua liderança intelectual reúne profissionais de trajetória própria — entre eles a fundadora, Helem Franceschini, cuja autoridade técnica orienta o posicionamento do escritório, mas não o esgota."
+  },
+  "team": {
+    "eyebrow": "Equipe",
+    "heading": "Profundidade técnica, presença direta.",
+    "lede": "Equipe enxuta por escolha. Cada caso é conduzido com envolvimento ativo dos sócios.",
+    "foundedBy": "Fundadora"
+  },
+  "practice": {
+    "eyebrow": "Atuação",
+    "heading": "Quatro frentes onde a estratégia vale mais que o volume.",
+    "lede": "Nosso foco é o litígio onde o desfecho depende de como o caso é construído — não apenas de como é defendido.",
+    "areasHeading": "Áreas",
+    "approachHeading": "Como atuamos",
+    "approachBody": "Recebemos cada caso como um cenário único. O primeiro passo é entender o que está em jogo — para o cliente e para o setor. A partir daí, construímos a estratégia."
+  },
+  "publications": {
+    "eyebrow": "Publicações",
+    "heading": "Leituras técnicas e posicionamentos.",
+    "lede": "Artigos e análises de jurisprudência produzidos pelo escritório.",
+    "empty": "Em breve, novas publicações.",
+    "readMore": "Ler artigo",
+    "readingTime": "min de leitura",
+    "by": "Por",
+    "publishedOn": "Publicado em",
+    "all": "Todas as publicações",
+    "categories": {
+      "Contencioso": "Contencioso",
+      "Recursos": "Recursos",
+      "Arbitragem": "Arbitragem",
+      "Recuperacao": "Recuperação"
+    }
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "heading": "Vamos conversar sobre o seu caso.",
+    "lede": "Encaminhe uma mensagem ou agende diretamente uma reunião. Respondemos em até 2 dias úteis.",
+    "schedulingHeading": "Agendar com a Helem",
+    "schedulingBody": "Reuniões iniciais são conduzidas pela fundadora. Escolha um horário no calendário.",
+    "schedulingCta": "Agendar reunião",
+    "formHeading": "Envie uma mensagem",
+    "formName": "Nome",
+    "formEmail": "E-mail",
+    "formPhone": "Telefone (opcional)",
+    "formSubject": "Assunto",
+    "formMessage": "Mensagem",
+    "formSubmit": "Enviar mensagem",
+    "formSubmitting": "Enviando…",
+    "formSuccess": "Mensagem recebida. Entraremos em contato em até 2 dias úteis.",
+    "formError": "Não foi possível enviar. Por favor, escreva direto para contato@franceschiniadvogados.com.br",
+    "formConsent": "Concordo com a Política de Privacidade e o tratamento dos meus dados para retorno deste contato (LGPD).",
+    "addressesHeading": "Escritórios",
+    "officeHoursHeading": "Atendimento",
+    "officeHoursBody": "Segunda a sexta · 9h às 18h (horário de Brasília)"
+  },
+  "footer": {
+    "tagline": "Boutique de contencioso estratégico",
+    "rights": "Todos os direitos reservados.",
+    "by": "Site por",
+    "byHref": "https://www.andreafaria.marketing",
+    "byName": "Andréa Faria Marketing"
+  },
+  "cookies": {
+    "title": "Sobre cookies neste site",
+    "body": "Usamos cookies para entender o uso do site, melhorar a navegação e atender requisitos da LGPD. Você pode aceitar todos ou apenas os essenciais.",
+    "essentialOnly": "Apenas essenciais",
+    "acceptAll": "Aceitar todos",
+    "managePrivacy": "Política de Privacidade"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "heading": "Página não encontrada.",
+    "lede": "O endereço acessado não existe ou foi removido.",
+    "cta": "Voltar para a Home"
+  }
+}

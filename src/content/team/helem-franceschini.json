@@ -1,0 +1,27 @@
+{
+  "order": 1,
+  "name": "Helem Franceschini",
+  "role": {
+    "pt": "Sócia Fundadora",
+    "en": "Founding Partner"
+  },
+  "isFounder": true,
+  "bio": {
+    "pt": "Liderança técnica do escritório. Atuação em contencioso estratégico, recursos especiais perante tribunais superiores, arbitragem empresarial e recuperação judicial de alto impacto.",
+    "en": "The firm's technical leadership. Practice focused on strategic litigation, special appeals before higher courts, commercial arbitration and high-impact judicial recovery."
+  },
+  "fullBio": {
+    "pt": [
+      "Advogada com mais de 20 anos de experiência em contencioso estratégico, com foco em recursos perante o Superior Tribunal de Justiça (STJ) e o Supremo Tribunal Federal (STF).",
+      "Reconhecida por construir teses jurídicas inéditas em casos de alto impacto patrimonial e setorial, atendendo clientes nos eixos Rio de Janeiro e Brasília.",
+      "Palestrante, autora de artigos jurídicos e referência em temas de arbitragem empresarial e recuperação judicial."
+    ],
+    "en": [
+      "Attorney with more than 20 years of experience in strategic litigation, focused on appeals before Brazil's Superior Court of Justice (STJ) and Supreme Federal Court (STF).",
+      "Recognized for crafting original legal theses in high-impact, asset-significant matters, serving clients across the Rio de Janeiro and Brasília axis.",
+      "Speaker, author of legal articles and a reference in commercial arbitration and judicial recovery."
+    ]
+  },
+  "education": [],
+  "photo": "/mockups/helem.webp"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "franceschini-advogados",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website institucional do Franceschini Advogados Associados — bilíngue PT/EN",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/vercel": "^9.0.5",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "astro": "^5.1.1",
+    "resend": "^4.0.1",
+    "typescript": "^5.7.2"
+  }
+}

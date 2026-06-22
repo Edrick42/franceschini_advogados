@@ -1,0 +1,154 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import Button from "~/components/Button.astro";
+import { getCollection } from "astro:content";
+import { t } from "~/i18n/utils";
+
+const dict = t("en");
+const areas = (await getCollection("practice-areas")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout title={dict.practice.eyebrow} description={dict.practice.lede}>
+  <PageHero
+    eyebrow={dict.practice.eyebrow}
+    heading={dict.practice.heading}
+    lede={dict.practice.lede}
+  />
+
+  <Section>
+    <ul class="areas-list">
+      {areas.map((area, i) => (
+        <li class="area" id={area.data.slug}>
+          <div class="area__meta">
+            <span class="area__index">{String(i + 1).padStart(2, "0")}</span>
+            <p class="eyebrow area__category">{dict.practice.areasHeading}</p>
+          </div>
+          <div class="area__body">
+            <h2 class="area__name">{area.data.name.en}</h2>
+            <p class="area__summary">{area.data.summary.en}</p>
+            <p class="area__description">{area.data.description.en}</p>
+            {area.data.typicalCases.en.length > 0 && (
+              <div class="area__cases">
+                <p class="eyebrow">Typical matters</p>
+                <ul>
+                  {area.data.typicalCases.en.map((c) => <li>{c}</li>)}
+                </ul>
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section variant="inverse" container="narrow" size="lg">
+    <p class="eyebrow eyebrow--inverse">{dict.practice.approachHeading}</p>
+    <h2 class="approach__heading">Every matter, a unique scenario.</h2>
+    <p class="approach__body">{dict.practice.approachBody}</p>
+    <div class="approach__cta">
+      <Button href="/en/contact" variant="primary" inverse>Talk about your case</Button>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .areas-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-9);
+  }
+  .area {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-block-end: var(--space-9);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .area:last-child {
+    border-bottom: none;
+    padding-block-end: 0;
+  }
+  @media (min-width: 800px) {
+    .area {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: var(--space-7);
+    }
+  }
+  .area__meta {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+  }
+  .area__index {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    color: var(--color-highlight);
+    line-height: 1;
+  }
+  .area__name {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: var(--weight-regular);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-strong);
+  }
+  .area__summary {
+    margin-top: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-text-strong);
+    line-height: var(--leading-snug);
+    font-style: italic;
+  }
+  .area__description {
+    margin-top: var(--space-5);
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+  }
+  .area__cases {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+  }
+  .area__cases ul {
+    margin-top: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    color: var(--color-text);
+  }
+  .area__cases li {
+    position: relative;
+    padding-left: var(--space-5);
+    line-height: var(--leading-snug);
+  }
+  .area__cases li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-highlight);
+  }
+  .approach__heading {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl));
+    font-weight: var(--weight-regular);
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-inverse);
+    margin-block: var(--space-3) var(--space-6);
+  }
+  .approach__body {
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-inverse-muted);
+  }
+  .approach__cta {
+    margin-top: var(--space-7);
+  }
+</style>

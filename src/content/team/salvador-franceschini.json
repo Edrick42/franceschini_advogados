@@ -1,0 +1,19 @@
+{
+  "order": 3,
+  "name": "Salvador Franceschini",
+  "role": {
+    "pt": "Advogado Associado",
+    "en": "Associate Attorney"
+  },
+  "isFounder": false,
+  "bio": {
+    "pt": "Atuação em arbitragem empresarial e recuperação judicial.",
+    "en": "Practice focused on commercial arbitration and judicial recovery."
+  },
+  "fullBio": {
+    "pt": [],
+    "en": []
+  },
+  "education": [],
+  "photo": "/mockups/salvador.webp"
+}

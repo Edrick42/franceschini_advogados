@@ -1,0 +1,92 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PageHero from "~/components/PageHero.astro";
+import Section from "~/components/Section.astro";
+import site from "~/data/site.json";
+---
+
+<Layout
+  title="Política de Privacidade"
+  description="Como o Franceschini Advogados Associados trata dados pessoais."
+>
+  <PageHero
+    eyebrow="Conformidade"
+    heading="Política de Privacidade"
+    lede="Como tratamos dados pessoais coletados neste site, em linha com a Lei Geral de Proteção de Dados (LGPD)."
+  />
+
+  <Section container="narrow">
+    <div class="legal">
+      <h2>1. Dados que coletamos</h2>
+      <p>
+        Coletamos apenas os dados que você nos fornece diretamente via formulário de contato (nome, e-mail, telefone opcional, assunto e mensagem) e, mediante consentimento, dados de navegação anonimizados via Google Analytics 4 e Microsoft Clarity para entender o uso do site.
+      </p>
+
+      <h2>2. Finalidade do tratamento</h2>
+      <p>
+        Dados de contato são tratados exclusivamente para responder à sua solicitação. Dados de navegação são tratados para fins estatísticos agregados e melhoria contínua do site.
+      </p>
+
+      <h2>3. Base legal</h2>
+      <p>
+        O tratamento ocorre com base no consentimento expresso (art. 7º, I, LGPD) — você precisa marcar a caixa de consentimento no formulário — e no legítimo interesse para análises estatísticas anonimizadas (art. 7º, IX).
+      </p>
+
+      <h2>4. Compartilhamento</h2>
+      <p>
+        Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins comerciais. Utilizamos provedores técnicos (envio de e-mail, hospedagem, métricas) que processam dados em nome do escritório sob contratos de processamento de dados.
+      </p>
+
+      <h2>5. Retenção</h2>
+      <p>
+        Mensagens recebidas via formulário são mantidas pelo tempo necessário para responder ao seu contato e cumprir eventuais obrigações legais.
+      </p>
+
+      <h2>6. Seus direitos</h2>
+      <p>
+        Você pode, a qualquer momento, solicitar acesso, correção, anonimização, portabilidade ou exclusão dos seus dados, bem como revogar o consentimento. Para exercer esses direitos, escreva para {site.contact.email}.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        Utilizamos cookies essenciais para o funcionamento do site e cookies de análise apenas após seu consentimento expresso, manifestado pelo banner exibido na sua primeira visita.
+      </p>
+
+      <h2>8. Atualizações</h2>
+      <p>
+        Esta política pode ser atualizada. A versão vigente é sempre a publicada nesta página.
+      </p>
+
+      <p class="updated">
+        Última atualização: junho de 2026
+      </p>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .legal h2 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-xl);
+    color: var(--color-text-strong);
+    margin-block: var(--space-7) var(--space-3);
+    line-height: 1.2;
+  }
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+  .legal p {
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+  }
+  .legal p + p {
+    margin-top: var(--space-4);
+  }
+  .updated {
+    margin-top: var(--space-8);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

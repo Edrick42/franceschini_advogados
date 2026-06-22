@@ -1,0 +1,19 @@
+{
+  "order": 2,
+  "name": "Dara Franceschini",
+  "role": {
+    "pt": "Advogada Associada",
+    "en": "Associate Attorney"
+  },
+  "isFounder": false,
+  "bio": {
+    "pt": "Atuação em contencioso estratégico e recursos perante tribunais superiores.",
+    "en": "Practice focused on strategic litigation and appeals before higher courts."
+  },
+  "fullBio": {
+    "pt": [],
+    "en": []
+  },
+  "education": [],
+  "photo": "/mockups/dara.webp"
+}
