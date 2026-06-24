@@ -14,7 +14,7 @@
     "open": "Open menu"
   },
   "home": {
-    "eyebrow": "Strategic litigation · Rio · Brasília",
+    "eyebrow": "Strategic litigation · Rio · Brasília · São Paulo",
     "heading": "Decisive litigation demands strategy from the start.",
     "lede": "We are a boutique firm focused on strategic litigation. We take on a limited number of cases, with direct partner involvement and strategy designed case by case.",
     "ctaPrimary": "Schedule a meeting",
@@ -28,8 +28,8 @@
     "publicationsHeading": "Recent publications",
     "publicationsLede": "Technical positions and case-law readings authored by the firm.",
     "publicationsCta": "All publications",
-    "closingHeading": "The firm you haven't met yet.",
-    "closingLede": "Let's talk about your case."
+    "closingHeading": "When the litigation is decisive, speak to those who lead it.",
+    "closingLede": "Schedule a conversation with the partners."
   },
   "firm": {
     "eyebrow": "The Firm",
@@ -106,7 +106,7 @@
     "formSubmit": "Send message",
     "formSubmitting": "Sending…",
     "formSuccess": "Message received. We'll respond within two business days.",
-    "formError": "We couldn't send your message. Please email contato@franceschiniadvogados.com.br directly.",
+    "formError": "We couldn't send your message. Please email helem@helemfranceschini.com directly.",
     "formConsent": "I agree with the Privacy Policy and the processing of my data to respond to this contact.",
     "addressesHeading": "Offices",
     "officeHoursHeading": "Hours",

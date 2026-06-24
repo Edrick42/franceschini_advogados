@@ -14,9 +14,9 @@
     "open": "Abrir menu"
   },
   "home": {
-    "eyebrow": "Contencioso estratégico · Rio · Brasília",
+    "eyebrow": "Contencioso estratégico · Rio · Brasília · São Paulo",
     "heading": "Litígios decisivos exigem estratégia de origem.",
-    "lede": "Somos um boutique de contencioso estratégico. Atendemos poucos clientes, com envolvimento direto da liderança e estratégia desenhada caso a caso.",
+    "lede": "Somos uma boutique de contencioso estratégico. Atendemos poucos clientes, com envolvimento direto da liderança e estratégia desenhada caso a caso.",
     "ctaPrimary": "Agendar reunião",
     "ctaSecondary": "Conheça o escritório",
     "areasHeading": "Áreas de atuação",
@@ -28,8 +28,8 @@
     "publicationsHeading": "Publicações recentes",
     "publicationsLede": "Posicionamentos técnicos e leituras de jurisprudência produzidos pelo escritório.",
     "publicationsCta": "Todas as publicações",
-    "closingHeading": "O escritório que você ainda não conheceu.",
-    "closingLede": "Vamos conversar sobre o seu caso."
+    "closingHeading": "Quando o litígio é decisivo, fale com quem o conduz.",
+    "closingLede": "Agende uma conversa com os sócios."
   },
   "firm": {
     "eyebrow": "O escritório",
@@ -106,7 +106,7 @@
     "formSubmit": "Enviar mensagem",
     "formSubmitting": "Enviando…",
     "formSuccess": "Mensagem recebida. Entraremos em contato em até 2 dias úteis.",
-    "formError": "Não foi possível enviar. Por favor, escreva direto para contato@franceschiniadvogados.com.br",
+    "formError": "Não foi possível enviar. Por favor, escreva direto para helem@helemfranceschini.com",
     "formConsent": "Concordo com a Política de Privacidade e o tratamento dos meus dados para retorno deste contato (LGPD).",
     "addressesHeading": "Escritórios",
     "officeHoursHeading": "Atendimento",

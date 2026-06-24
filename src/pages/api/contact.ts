@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const locale = payload.locale === "en" ? "en" : "pt";
   const notifyTo =
-    import.meta.env.CONTACT_NOTIFY_EMAIL ?? "contato@franceschiniadvogados.com.br";
+    import.meta.env.CONTACT_NOTIFY_EMAIL ?? "helem@helemfranceschini.com";
   const apiKey = import.meta.env.RESEND_API_KEY;
 
   const summary = `[${locale.toUpperCase()}] ${payload.subject}`.slice(0, 160);

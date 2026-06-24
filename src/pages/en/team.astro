@@ -17,10 +17,15 @@ function initials(name: string): string {
 ---
 
 <Layout title={dict.team.eyebrow} description={dict.team.lede}>
-  <PageHero eyebrow={dict.team.eyebrow} heading={dict.team.heading} lede={dict.team.lede} />
+  <PageHero
+    eyebrow={dict.team.eyebrow}
+    heading={dict.team.heading}
+    lede={dict.team.lede}
+    variant="inverse"
+  />
 
   {founder && (
-    <Section container="wide">
+    <Section variant="inverse" container="wide">
       <div class="founder">
         <div class="founder__photo">
           {founder.data.photo ? (
@@ -30,7 +35,7 @@ function initials(name: string): string {
           )}
         </div>
         <div class="founder__body">
-          <p class="eyebrow">{dict.team.foundedBy}</p>
+          <p class="eyebrow eyebrow--inverse">{dict.team.foundedBy}</p>
           <h2 class="founder__name">{founder.data.name}</h2>
           <p class="founder__role">{founder.data.role.en}</p>
           <div class="founder__bio">
@@ -38,16 +43,24 @@ function initials(name: string): string {
               ? founder.data.fullBio.en.map((p) => <p>{p}</p>)
               : <p>{founder.data.bio.en}</p>}
           </div>
+          <a
+            class="founder__link"
+            href="https://www.helemfranceschini.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Helem Franceschini <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </Section>
   )}
 
   {others.length > 0 && (
-    <Section variant="surface">
+    <Section variant="inverse">
       <div class="lead-grid">
         <div class="lead-grid__col-label">
-          <p class="eyebrow">Team</p>
+          <p class="eyebrow eyebrow--inverse">Team</p>
         </div>
         <div class="lead-grid__col-body">
           <h2 class="lead-grid__heading">Partners and associate attorneys.</h2>
@@ -94,13 +107,11 @@ function initials(name: string): string {
     aspect-ratio: 4 / 5;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background:
-      linear-gradient(180deg, rgba(23, 55, 78, 0.86), rgba(14, 35, 53, 0.94)),
-      url("/patterns/pattern-2.webp");
-    background-size: cover;
+    background: var(--color-surface-inverse);
     color: var(--color-text-inverse);
     font-family: var(--font-display);
     font-size: clamp(4rem, 10vw, 8rem);
+    border: 1px solid var(--color-border-inverse);
   }
   .founder__photo img {
     position: absolute;
@@ -108,7 +119,7 @@ function initials(name: string): string {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center 20%;
     display: block;
   }
   .founder__photo span {
@@ -127,23 +138,44 @@ function initials(name: string): string {
     font-weight: var(--weight-regular);
     line-height: 1.05;
     letter-spacing: var(--tracking-tight);
-    color: var(--color-text-strong);
+    color: var(--color-text-inverse);
   }
   .founder__role {
     margin-top: var(--space-3);
     font-size: var(--text-base);
-    color: var(--color-text-muted);
+    color: var(--brand-amber);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wider);
   }
   .founder__bio {
     margin-top: var(--space-6);
-    color: var(--color-text-muted);
+    color: var(--color-text-inverse-muted);
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+  }
+  .founder__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-7);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--brand-amber);
+    border-bottom: 1px solid var(--color-border-inverse);
+    padding-bottom: var(--space-2);
+    width: max-content;
+    transition: color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+  .founder__link:hover {
+    color: var(--color-highlight-hover);
+    border-bottom-color: var(--brand-amber);
   }
 
   .lead-grid {
@@ -165,7 +197,7 @@ function initials(name: string): string {
     font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
-    color: var(--color-text-strong);
+    color: var(--color-text-inverse);
   }
 
   .team-grid {
@@ -191,15 +223,13 @@ function initials(name: string): string {
   .team-card__photo {
     position: relative;
     aspect-ratio: 4 / 5;
-    background:
-      linear-gradient(180deg, rgba(23, 55, 78, 0.86), rgba(14, 35, 53, 0.94)),
-      url("/patterns/pattern-1.webp");
-    background-size: cover;
+    background: var(--color-surface-inverse);
     border-radius: var(--radius-lg);
     overflow: hidden;
     color: var(--color-text-inverse);
     font-family: var(--font-display);
     font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+    border: 1px solid var(--color-border-inverse);
   }
   .team-card__photo img {
     position: absolute;
@@ -223,18 +253,18 @@ function initials(name: string): string {
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    color: var(--brand-amber);
   }
   .team-card__name {
     font-family: var(--font-display);
     font-size: clamp(var(--text-xl), 2.4vw, var(--text-2xl));
     font-weight: var(--weight-regular);
-    color: var(--color-text-strong);
+    color: var(--color-text-inverse);
     margin-block: var(--space-2);
     line-height: 1.15;
   }
   .team-card__bio {
-    color: var(--color-text-muted);
+    color: var(--color-text-inverse-muted);
     line-height: var(--leading-snug);
   }
 </style>

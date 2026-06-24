@@ -1,85 +1,92 @@
 /* ============================================================================
    DESIGN TOKENS · Franceschini Advogados Associados
    ----------------------------------------------------------------------------
-   Paleta extraída dos SVGs oficiais da marca (Arquivos/Marca/Logo/).
+   Paleta oficial (especificação Andréa Faria Marketing, jun/2026):
+     · ALABASTRO  #EFEBDB — base clara dominante
+     · ÔNIX       #2A2926 — cor institucional, fundos escuros, CTAs
+     · ÂMBAR      #DDBA8D — acento quente, detalhes e highlights
    Aplicação 60-30-10:
-     · 60% cream/paper — superfícies dominantes claras
-     · 30% petrol — institucional, headers, fundos escuros
-     · 10% sand — acentos quentes (CTA único, micro-detalhes)
+     · 60% alabastro/branco — superfícies claras
+     · 30% ônix — header escuro, footer, hero, blocos institucionais
+     · 10% âmbar — índices, marcadores, hovers, washes featured
    Contraste:
-     · ink (#2A2926) sobre cream (#EEEADB) = 11.5:1, AAA
-     · petrol (#17374E) sobre cream = 7.4:1, AAA
-     · cream sobre petrol = 7.4:1, AAA — pareamento para footer e hero escuros
+     · ônix (#2A2926) sobre alabastro (#EFEBDB) = 12.4:1, AAA
+     · alabastro sobre ônix = 12.4:1, AAA
+     · âmbar não é usado em texto pequeno (falha AA)
    ============================================================================ */
 
 :root {
   /* ────────────────────────────────────────────────────────────────────────
      1. PALETA OFICIAL
      ──────────────────────────────────────────────────────────────────────── */
-  --brand-petrol: #17374e;
-  --brand-petrol-soft: #7099b3;
-  --brand-sand: #ddba8d;
-  --brand-cream: #eeeadb;
-  --brand-ink: #2a2926;
+  --brand-onix: #2a2926;
+  --brand-alabastro: #efebdb;
+  --brand-amber: #ddba8d;
   --brand-white: #f8f8f8;
   --brand-paper: #ffffff;
   --brand-muted: #5e5e5e;
 
-  /* 60% — neutros dominantes (branco quente, NÃO cream).
-     Cream foi rebaixado a "detalhe": só sobrevive em texto/botões
-     sobre fundo petrol e nas variantes inversas da marca. */
+  /* Aliases legados — mantidos para evitar quebrar referências internas
+     a `--brand-ink`, `--brand-cream` e `--brand-sand` em componentes. */
+  --brand-ink: var(--brand-onix);
+  --brand-cream: var(--brand-alabastro);
+  --brand-sand: var(--brand-amber);
+
+  /* 60% — neutros dominantes (branco quente).
+     Alabastro fica reservado para superfícies "featured" e para texto
+     sobre fundo ônix. */
   --color-bg: var(--brand-white);
-  --color-surface: #eceff2;             /* tint sutil de petrol-soft para cards/seções "surface" */
+  --color-surface: #f1ede0;             /* tint sutil de alabastro p/ cards e seções "surface" */
   --color-surface-alt: var(--brand-paper);
-  --color-text: var(--brand-ink);
-  --color-text-strong: #1a1a1a;
+  --color-text: var(--brand-onix);
+  --color-text-strong: #1a1a17;
   --color-text-muted: var(--brand-muted);
   --color-text-subtle: #7a7570;
 
-  /* 30% — estrutura tingida de petrol-soft.
-     Bordas e filetes agora carregam a cor da marca em vez de cinza neutro. */
-  --color-border: rgba(112, 153, 179, 0.28);
-  --color-border-strong: rgba(112, 153, 179, 0.50);
-  --color-rule: rgba(112, 153, 179, 0.22);
+  /* 30% — estrutura tingida em ônix.
+     Bordas carregam tom quente da marca, não cinza neutro. */
+  --color-border: rgba(42, 41, 38, 0.18);
+  --color-border-strong: rgba(42, 41, 38, 0.40);
+  --color-rule: rgba(42, 41, 38, 0.14);
 
-  /* Accent estrutural — petrol-soft. Usado em bullets, hovers,
-     bordas vivas, ícones secundários. É o "tom funcional" da marca. */
-  --color-accent: var(--brand-petrol-soft);
-  --color-accent-hover: #5a8aa6;
-  --color-accent-soft: rgba(112, 153, 179, 0.14);
+  /* Accent estrutural — ônix translúcido. Usado em hovers e ícones
+     secundários quando precisam aparecer sobre fundo claro. */
+  --color-accent: var(--brand-onix);
+  --color-accent-hover: #1a1a17;
+  --color-accent-soft: rgba(42, 41, 38, 0.08);
 
-  /* HIGHLIGHT — sand para destaques visuais (não para texto pequeno,
+  /* HIGHLIGHT — âmbar para destaques visuais (não para texto pequeno,
      que falharia AA). Use em:
        · índices grandes (01, 02, 03) decorativos
        · marcadores de lista ("—" antes de itens)
        · filetes diagonais e separadores quentes
        · washes de fundo em blocos "featured"
        · hovers e seleção */
-  --color-highlight: var(--brand-sand);
+  --color-highlight: var(--brand-amber);
   --color-highlight-hover: #c9a373;
   --color-highlight-soft: rgba(221, 186, 141, 0.18);
-  --color-highlight-strong: #8a6638;   /* sand profundo, único nível seguro para AA em texto */
+  --color-highlight-strong: #8a6638;   /* âmbar profundo, único nível seguro para AA em texto */
 
   /* Alias legado — ainda usado pelo eyebrow filete. */
-  --color-detail: var(--brand-sand);
+  --color-detail: var(--brand-amber);
 
   /* Superfícies inversas (hero, footer, blocos institucionais).
-     Cream sobrevive aqui como texto de alto contraste sobre petrol. */
-  --color-bg-inverse: var(--brand-petrol);
-  --color-surface-inverse: #0e2335;
-  --color-text-inverse: var(--brand-cream);
-  --color-text-inverse-muted: rgba(238, 234, 219, 0.72);
-  --color-text-inverse-subtle: rgba(238, 234, 219, 0.55);
-  --color-border-inverse: rgba(112, 153, 179, 0.30);
+     Alabastro sobrevive aqui como texto de alto contraste sobre ônix. */
+  --color-bg-inverse: var(--brand-onix);
+  --color-surface-inverse: #1a1a17;
+  --color-text-inverse: var(--brand-alabastro);
+  --color-text-inverse-muted: rgba(239, 235, 219, 0.78);
+  --color-text-inverse-subtle: rgba(239, 235, 219, 0.58);
+  --color-border-inverse: rgba(221, 186, 141, 0.28);
 
-  /* Ação principal (CTA) — petrol sobre fundo claro, cream sobre fundo escuro.
-     Sand NÃO é usado em CTA — fica como detalhe decorativo apenas. */
-  --color-action: var(--brand-petrol);
-  --color-action-hover: #0e2335;
-  --color-action-text: var(--brand-cream);
-  --color-action-inverse: var(--brand-cream);
+  /* Ação principal (CTA) — ônix sobre fundo claro, alabastro sobre fundo escuro.
+     Âmbar NÃO é usado em CTA — fica como detalhe decorativo apenas. */
+  --color-action: var(--brand-onix);
+  --color-action-hover: #1a1a17;
+  --color-action-text: var(--brand-alabastro);
+  --color-action-inverse: var(--brand-alabastro);
   --color-action-inverse-hover: var(--brand-white);
-  --color-action-inverse-text: var(--brand-petrol);
+  --color-action-inverse-text: var(--brand-onix);
 
   /* Estados semânticos */
   --color-success: #2f6b3a;
@@ -87,7 +94,7 @@
   --color-error: #b23a2b;
 
   /* Foco visível */
-  --color-focus-ring: var(--brand-petrol);
+  --color-focus-ring: var(--brand-onix);
 
   /* ────────────────────────────────────────────────────────────────────────
      2. TIPOGRAFIA
@@ -183,13 +190,13 @@
   --radius-xl: 0.75rem;
   --radius-pill: 9999px;
 
-  --shadow-xs: 0 1px 2px rgba(23, 55, 78, 0.05);
-  --shadow-sm: 0 1px 3px rgba(23, 55, 78, 0.07), 0 1px 2px rgba(23, 55, 78, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(23, 55, 78, 0.09),
-    0 2px 6px -2px rgba(23, 55, 78, 0.05);
-  --shadow-lg: 0 16px 32px -8px rgba(23, 55, 78, 0.14),
-    0 6px 12px -6px rgba(23, 55, 78, 0.07);
-  --shadow-xl: 0 28px 56px -16px rgba(23, 55, 78, 0.18);
+  --shadow-xs: 0 1px 2px rgba(42, 41, 38, 0.06);
+  --shadow-sm: 0 1px 3px rgba(42, 41, 38, 0.08), 0 1px 2px rgba(42, 41, 38, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(42, 41, 38, 0.10),
+    0 2px 6px -2px rgba(42, 41, 38, 0.06);
+  --shadow-lg: 0 16px 32px -8px rgba(42, 41, 38, 0.16),
+    0 6px 12px -6px rgba(42, 41, 38, 0.08);
+  --shadow-xl: 0 28px 56px -16px rgba(42, 41, 38, 0.20);
 
   --border-width: 1px;
 

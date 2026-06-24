@@ -41,13 +41,9 @@ const categoryLabel: Record<string, string> = dict.publications.categories;
   />
 
   <Section>
-    <div class="lead-grid">
-      <div class="lead-grid__col-label">
-        <p class="eyebrow">{dict.home.areasHeading}</p>
-      </div>
-      <div class="lead-grid__col-body">
-        <h2 class="lead-grid__heading">{dict.home.areasLede}</h2>
-      </div>
+    <div class="section-intro">
+      <p class="eyebrow">{dict.home.areasHeading}</p>
+      <h2 class="section-intro__heading">{dict.home.areasLede}</h2>
     </div>
 
     <ul class="areas">
@@ -189,6 +185,22 @@ const categoryLabel: Record<string, string> = dict.publications.categories;
     max-width: 32ch;
     text-wrap: balance;
   }
+  .section-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .section-intro__heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-regular);
+    font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-strong);
+    max-width: 32ch;
+    text-wrap: balance;
+  }
   .section-cta {
     margin-top: var(--space-7);
     display: flex;
@@ -275,7 +287,7 @@ const categoryLabel: Record<string, string> = dict.publications.categories;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background:
-      linear-gradient(180deg, rgba(23, 55, 78, 0.86), rgba(14, 35, 53, 0.94)),
+      linear-gradient(180deg, rgba(42, 41, 38, 0.86), rgba(26, 26, 23, 0.94)),
       url("/patterns/pattern-1.webp");
     background-size: cover;
     color: var(--color-text-inverse);
@@ -394,7 +406,7 @@ const categoryLabel: Record<string, string> = dict.publications.categories;
     font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
     line-height: 1.05;
     letter-spacing: var(--tracking-tighter);
-    color: var(--brand-petrol);
+    color: var(--brand-onix);
   }
   .closing__lede {
     font-size: clamp(var(--text-lg), 2vw, var(--text-xl));

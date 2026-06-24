@@ -14,20 +14,14 @@
     "en": "Boutique law firm specialized in strategic litigation across the Rio–Brasília axis. High-impact practice in Strategic Litigation, Special Appeals, Commercial Arbitration and Judicial Recovery."
   },
   "contact": {
-    "email": "contato@franceschiniadvogados.com.br",
-    "phone": "+55 21 0000-0000",
-    "phoneRaw": "+552100000000",
+    "email": "helem@helemfranceschini.com",
+    "phone": "+55 21 2253-3889",
+    "phoneRaw": "+552122533889",
     "addresses": [
       {
         "city": "Rio de Janeiro",
-        "street": "",
+        "street": "Travessa do Paço, nº 23 — Centro · CEP 20010-170",
         "state": "RJ",
-        "country": "BR"
-      },
-      {
-        "city": "Brasília",
-        "street": "",
-        "state": "DF",
         "country": "BR"
       }
     ]
